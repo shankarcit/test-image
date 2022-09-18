@@ -30,6 +30,6 @@ jobs:
 workflows:
   test-artifact:
     jobs:
-      - test-app:
+      - test-app
 
   
