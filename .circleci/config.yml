@@ -23,10 +23,6 @@ jobs:
           cluster-name: << parameters.cluster-name >>
           aws-region: << parameters.aws-region >>
           install-kubectl: true
-      - kubernetes/create-or-update-resource:
-          get-rollout-status: true
-          resource-file-path: ~/deployment/configs/deployment/demo-app-deployment.yaml
-          resource-name: deployment/demoapp-deployment
       - run:
           name: Build doc
           command: |         
