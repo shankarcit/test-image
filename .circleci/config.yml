@@ -8,13 +8,15 @@ jobs:
         aws_auth:
           aws_access_key_id: $AWS_ACCESS_KEY_ID
           aws_secret_access_key: $AWS_SECRET_ACCESS_KEY 
-      - run:
-          name: Build doc
-          command: |         
-            docker pull 056186925767.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-shankar-tool-box/demo-app:edf93f6b-02ad-4cd5-b8f8-8e22dc0e4265
-            docker run --name demo-test -d -p 8080:80 056186925767.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-shankar-tool-box/demo-app:edf93f6b-02ad-4cd5-b8f8-8e22dc0e4265
-            sleep 100
-            curl http://localhost:8080/
+
+  test:           
+    - run:
+        name: Build doc
+        command: |         
+          docker pull 056186925767.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-shankar-tool-box/demo-app:edf93f6b-02ad-4cd5-b8f8-8e22dc0e4265
+          docker run --name demo-test -d -p 8080:80 056186925767.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-shankar-tool-box/demo-app:edf93f6b-02ad-4cd5-b8f8-8e22dc0e4265
+          sleep 100
+          curl http://localhost:8080/
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -22,6 +24,7 @@ workflows:
   test-artifact:
     jobs:
       - test-app
+      - test
     
 
   
