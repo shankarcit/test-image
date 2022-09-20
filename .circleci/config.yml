@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Build doc
           command: |
-            export AWS_DEFAULT_REGION=ap-northeast-1         
+            export AWS_REGION=ap-northeast-1         
             docker pull 056186925767.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-shankar-tool-box/demo-app:edf93f6b-02ad-4cd5-b8f8-8e22dc0e4265
             docker run --name demo-test -d -p 8080:80 056186925767.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-shankar-tool-box/demo-app:edf93f6b-02ad-4cd5-b8f8-8e22dc0e4265
             sleep 100
