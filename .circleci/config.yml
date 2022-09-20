@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   test-app:
     docker:
-      - image: cimg/base:1.17
+      - image: 056186925767.dkr.ecr.ap-northeast-1.amazonaws.com/ecr-shankar-tool-box/demo-app:edf93f6b-02ad-4cd5-b8f8-8e22dc0e4265
         environment:
           AWS_REGION: ap-northeast-1
           AWS_DEFAULT_REGION: ap-northeast-1
