@@ -10,6 +10,8 @@ jobs:
           aws_secret_access_key: $AWS_SECRET_ACCESS_KEY 
           
     steps:
+      - setup_remote_docker:
+          version: 20.10.17    
       - run:
           name: Build doc
           command: |         
@@ -24,6 +26,3 @@ workflows:
   test-artifact:
     jobs:
       - test-app
-    
-
-  
